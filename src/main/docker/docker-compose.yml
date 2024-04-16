@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+#  app:
+#    image: 'myapp:latest'
+#    build:
+#      context: .
+#    container_name: 'java-postgres'
+#    depends_on:
+#      - db
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/myblog
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=sdfgtb123
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:14.2
+    '
+    restart: always
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sdfgtb123
+      - POSTGRES_DATABASE=myblog
+
+#  flyway:
+#    image: boxfuse/flyway:latest-alpine
+#    command:
+#      - url=jdbc:postgresql://db:5432/myblog
+#      - schemas=public
+#      - user=postgres
+#      - password=sdfgtb123
+#      - migrate
+#    volumes:
+#      - ./src/main/resources/db/migration:/flyway/sql
+#    restart: on-failure
+#    depends_on:
+#      - db
